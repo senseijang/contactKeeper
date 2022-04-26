@@ -1,7 +1,6 @@
 classes: *.java
 	javac *.java
 
-clean: Clean.class
-	java Clean
+clean:
 	rm *.class
 

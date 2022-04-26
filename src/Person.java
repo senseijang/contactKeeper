@@ -19,7 +19,7 @@ abstract class Person implements Serializable {
     protected Date birthday = new Date();
     protected Address address = new Address();
 
-    //protected String phoneNumber = "";
+    protected String phoneNumber = "";
     protected String fname = "";
     protected String lname = "";
 
@@ -29,9 +29,10 @@ abstract class Person implements Serializable {
 
     } // end null param
 
-    public Person (String fname, String lname) {
+    public Person (String fname, String lname, String phoneNum) {
         this.fname = fname;
         this.lname = lname;
+        phoneNumber = phoneNum;
 
     }
 
@@ -426,6 +427,11 @@ abstract class Person implements Serializable {
         this.printLikes();
         this.printHates();
         
+    }
+
+    public String getName() {
+        return fname + " " + lname;
+
     }
 
 }
