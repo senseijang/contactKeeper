@@ -80,7 +80,7 @@ public class Friend extends Person {
                 status.decreaseStatus();
 
             } else if (userInput.equals("4")) {
-                //this.getGifts();
+                this.getGifts();
 
             } else if (userInput.equals("5")) {
                 this.addLikes();
@@ -115,6 +115,26 @@ public class Friend extends Person {
             }
 
         } // end while
+
+    }
+
+    public void getGifts() {
+        int month = birthday.getMonth();
+
+        System.out.println("-----Gift ideas-----");
+        if (month <= 3) {
+            System.out.println("- Hot cocoa bombs\n- Candles\n- Squishmellow\n- Blanket\n- Insulated mug");
+
+        } else if (month <= 6) {
+            System.out.println("- Vases\n- New Plant\n- A new tote\n- Hammock\n- Bird feeder");
+
+        } else if (month <= 9) {
+            System.out.println("- Shot glasses\n- A new float\n- Sunglasses\n- Bath bombs");
+        
+        } else if (month <= 12) {
+            System.out.println("- Something pumpkin spice\n- Candles\n- New phone case");
+
+        }
 
     }
 
