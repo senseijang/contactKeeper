@@ -9,7 +9,7 @@
 
 public class EnemyStatus extends Attribute {
     public EnemyStatus () {
-        super(1, "annoying", "enemy", "hated");
+        super(0, "annoying", "enemy", "hated");
 
     }
 

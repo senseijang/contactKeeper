@@ -19,15 +19,18 @@ abstract class Person {
     protected Address address = new Address();
 
     //protected String phoneNumber = "";
-    protected String name = "";
+    protected String fname = "";
+    protected String lname = "";
 
     public Person() {
-        name = "bob";
+        fname = "bob";
+        lname = "saget";
 
     } // end null param
 
-    public Person (String name) {
-        this.name = name;
+    public Person (String fname, String lname) {
+        this.fname = fname;
+        this.lname = lname;
 
     }
 
@@ -39,7 +42,7 @@ abstract class Person {
         int year;
         boolean keepGoing = true;
 
-        System.out.println("Birthday initializer");
+        System.out.println("\nBirthday initializer");
 
         // set month, month has to be between 1 - 12
         while (keepGoing) {
@@ -121,7 +124,7 @@ abstract class Person {
     } // setBirthday
 
     public void printBirthday() {
-        System.out.println(name + "'s birthday is on " + birthday.getDate());
+        System.out.println(fname + "'s birthday is on " + birthday.getDate());
 
     } // printBirthday
 
@@ -134,7 +137,7 @@ abstract class Person {
         Scanner input = new Scanner(System.in);
         String userInput = "";
 
-        System.out.println("Address initializer");
+        System.out.println("\nAddress initializer");
 
         while (keepGoing) {
             System.out.println("Street Address: ");
@@ -216,12 +219,12 @@ abstract class Person {
     } // end of address setter
 
     public void printAddress() {
-       System.out.println(name + "'s address is " + address.getAddress()); 
+       System.out.println(fname + "'s address is " + address.getAddress()); 
 
     } // end of address printer
 
     public void printLikes() {
-        System.out.println("Current likes: ");
+        System.out.println("\nCurrent likes: ");
 
         for (int i = 0; i < likes.size(); i++) {
             System.out.println(i + ") " + likes.get(i));
@@ -231,7 +234,7 @@ abstract class Person {
     } // end print Likes
 
     public void printHates() {
-        System.out.println("Current hates: ");
+        System.out.println("\nCurrent hates: ");
 
         for (int i = 0; i < hates.size(); i++) {
             System.out.println(i + ") " + hates.get(i));
@@ -246,9 +249,9 @@ abstract class Person {
         boolean keepGoing = true;
         boolean confirmation = true;
 
-        this.printLikes();
-
         while (keepGoing) {
+            this.printLikes();
+
             System.out.println("Add a like: ");
             userInput = input.nextLine();
             likes.add(userInput);
@@ -276,7 +279,7 @@ abstract class Person {
             }
 
         }
-        System.out.println("*Updated*");
+        System.out.println("\n*Updated*");
         this.printLikes();
 
     } // end addLikes
@@ -287,9 +290,9 @@ abstract class Person {
         boolean keepGoing = true;
         boolean confirmation = true;
 
-        this.printHates();
-
         while (keepGoing) {
+            this.printHates();
+
             System.out.println("Add a hate: ");
             userInput = input.nextLine();
             hates.add(userInput);
@@ -328,6 +331,7 @@ abstract class Person {
 
         while (keepGoing) {
             this.printLikes();
+
             System.out.println("Which like would you like to remove? (#): ");
             userInput = input.nextLine();
 
@@ -415,8 +419,7 @@ abstract class Person {
     }
 
     public void printAllInformation() {
-        System.out.println("\nFull Report");
-        System.out.println("Name: " + name);
+        System.out.println("\nName: " + fname + " " + lname);
         this.printBirthday();
         this.printAddress();
         this.printLikes();

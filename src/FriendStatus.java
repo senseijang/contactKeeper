@@ -9,7 +9,7 @@
 
 public class FriendStatus extends Attribute {
     public FriendStatus() {
-        super(1, "familiar", "friends", "best friends");
+        super(0, "familiar", "friends", "best friends");
 
     }
 
