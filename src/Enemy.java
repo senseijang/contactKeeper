@@ -21,6 +21,7 @@ public class Enemy extends Person {
         System.out.println("\nName: " + fname + " " + lname);
         System.out.println(status.getStatus());
         System.out.println("Phone number: " + phoneNumber);
+        System.out.println("You have been enemies for " + enemyDuration + " years!");
         this.printBirthday();
         this.printAddress();
         this.printLikes();

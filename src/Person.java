@@ -434,4 +434,33 @@ abstract class Person implements Serializable {
 
     }
 
+    public void setPhoneNumber() {
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        boolean keepGoing = true;
+
+        while (keepGoing) {
+            System.out.println("What is their phone number? ");
+            userInput = input.nextLine();
+
+            if (userInput.length() == 10 || userInput.length() == 11 || userInput.length() == 0) {
+                try {
+                    Long.parseLong(userInput); // checks if its a number
+                    phoneNumber = userInput;
+                    keepGoing = false;
+
+                } catch (Exception e) {
+                    System.out.println("The input was not a phone number, please try again.");
+
+                }
+
+            } else  {
+                System.out.println("The inputted phone number was too long, please try again.");
+
+            }
+
+        }
+
+    }
+
 }
