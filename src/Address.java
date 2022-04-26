@@ -2,6 +2,9 @@
  * Address.java
  * 
  * Address is used to store the address of a contact
+ *
+ * @version April 25, 2022
+ * @author Sunwoo Jang
  */
 
 public class Address {
