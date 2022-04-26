@@ -13,12 +13,12 @@ import java.util.*;
 abstract class Person {
     protected ArrayList<String> likes = new ArrayList<String>();
     protected ArrayList<String> hates = new ArrayList<String>();
-    protected ArrayList<String> nicknames = new ArrayList<String>();
+    //protected ArrayList<String> nicknames = new ArrayList<String>();
 
     protected Date birthday = new Date();
     protected Address address = new Address();
 
-    protected String phoneNumber = "";
+    //protected String phoneNumber = "";
     protected String name = "";
 
     public Person() {
@@ -307,6 +307,7 @@ abstract class Person {
 
                 } else if (userInput.equals("n")) {
                     confirmation = false;
+        }
                     keepGoing = false;
 
                 } else {
@@ -319,5 +320,111 @@ abstract class Person {
         }
 
     } // end addHates
+
+    public void removeLikes() {
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        int userIndex = -1;
+        boolean keepGoing = true;
+
+        while (keepGoing) {
+            this.printLikes();
+            System.out.println("Which like would you like to remove? (#): ");
+            userInput = input.nextLine();
+
+            try {
+                userIndex = Integer.parseInt(userInput);
+                likes.remove(userIndex);
+
+                System.out.println("Like #" + userIndex + " has been removed.");
+                System.out.println("Would you like to remove another like? (y/n): ");
+                userInput = input.nextLine();
+                userInput = userInput.toLowerCase();
+
+                if (userInput.equals("y")) {
+                    // go back to the loop
+
+                } else if (userInput.equals("n")) {
+                    keepGoing = false;
+
+                } else {
+                    System.out.println("An invalid input was submitted, you will now be taken back. ");
+                    break;
+
+                }
+
+            } catch (Exception e) {
+                System.out.println("Please enter a numerical value for the like to be removed");
+
+            }
+
+        } // end while
+        System.out.println("*Updated*");
+        this.printLikes();
+
+    } // end removeLikes
+
+    public void removeHates() {
+        }
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        int userIndex = -1;
+        boolean keepGoing = true;
+
+        while (keepGoing) {
+        }
+            this.printHates();
+            System.out.println("Which hate would you like to remove? (#): ");
+            userInput = input.nextLine();
+
+            try {
+                userIndex = Integer.parseInt(userInput);
+                hates.remove(userIndex);
+
+                System.out.println("Hate #" + userIndex + " has been removed.");
+                System.out.println("Would you like to remove another hate? (y/n): ");
+                userInput = input.nextLine();
+                userInput = userInput.toLowerCase();
+
+                if (userInput.equals("y")) {
+                    // go back
+
+                } else if (userInput.equals("n")) {
+                    keepGoing = false;
+
+                } else {
+                    System.out.println("An invalid input has been submitted, you will now be taken back.");
+                    break;
+
+                }
+
+            } catch (Exception e) {
+                System.out.println("Please enter a numerical value for the hate to be removed.");
+
+            }
+
+        }
+
+    } // end removeHates
+
+    public void conversate() {
+        System.out.println("If you're seeing this, the function conversate has yet to be overwritten.");
+
+    } // end conversate
+
+    public void menu() {
+        System.out.println("If you're seeing this, the function menu has yet to be overwritten.");
+
+    }
+
+    public void printAllInformation() {
+        System.out.println("\nFull Report");
+        System.out.println("Name: " + name);
+        this.printBirthday();
+        this.printAddress();
+        this.printLikes();
+        this.printHates();
+        
+    }
 
 }
