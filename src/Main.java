@@ -237,7 +237,7 @@ public class Main {
 
         while (keepGoing) {
             System.out.println("\n-----Contactbook-----");
-            System.out.println("1. Show all contacts\n2. Add a new friend\n3. Add a new enemy\n4. Delete a contact\n0. Exit");
+            System.out.println("1. Show all contacts\n2. Add a new friend\n3. Add a new enemy\n4. Delete a contact\n5. Sort all names\n0. Exit");
             System.out.println("\nSelect an option: ");
 
             userInput = input.nextLine();
@@ -254,6 +254,9 @@ public class Main {
             } else if (userInput.equals("4")) {
                 this.deleteContact(); // saves
 
+            } else if (userInput.equals("5")) {
+                this.sortNames();
+                
             } else if (userInput.equals("0")) {
                 keepGoing = false;
 
@@ -285,5 +288,63 @@ public class Main {
         }
 
     } // end contactSelection
+
+    /*
+    public void reportMenu() {
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        boolean keepGoing = true;
+
+        while (keepGoing) {
+            System.out.println("\n-----Generate Report-----");
+            System.out.println("1. Sort all names\n2. List all likes\n3. List all hates\n0. Go back");
+            System.out.println("Please select an option: ");
+            userInput = input.nextLine();
+
+            if (userInput.equals("1")) {
+                this.sortNames();
+
+            } else if (userInput.equals("2")) {
+                //this.getAllLikes();
+
+            } else if (userInput.equals("3")) {
+                //this.getAllHates();
+
+            } else if (userInput.equals("0")) {
+                keepGoing = false;
+
+            }
+
+        } // end while
+
+    } // end menu
+    */
+
+    public void sortNames() {
+        ArrayList<String> names = new ArrayList<String>();
+
+        for (int i = 0; i < contacts.size(); i++) {
+           names.add(contacts.get(i).getName());
+
+        }
+
+        Collections.sort(names);
+
+        try {
+            FileWriter fw = new FileWriter("sortedNames.txt");
+
+            for (int j = 0; j < names.size(); j++) {
+                fw.write(names.get(j) + "\n");
+
+            }
+            fw.close();
+            System.out.println("sortedNames.txt has been updated.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    } // end sortName
 
 }
