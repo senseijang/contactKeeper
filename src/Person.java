@@ -9,8 +9,9 @@
  */
 
 import java.util.*;
+import java.io.*;
 
-abstract class Person {
+abstract class Person implements Serializable {
     protected ArrayList<String> likes = new ArrayList<String>();
     protected ArrayList<String> hates = new ArrayList<String>();
     //protected ArrayList<String> nicknames = new ArrayList<String>();

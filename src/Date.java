@@ -7,7 +7,9 @@
  * @author Sunwoo Jang
  */
 
-public class Date {
+import java.io.*;
+
+public class Date implements Serializable {
     private int month;
     private int day;
     private int year;

@@ -9,8 +9,9 @@
  */
 
 import java.util.*;
+import java.io.*;
 
-abstract class Attribute {
+abstract class Attribute implements Serializable {
     protected int status;
     ArrayList<String> states = new ArrayList<String>();
 

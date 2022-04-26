@@ -7,7 +7,9 @@
  * @author Sunwoo Jang
  */
 
-public class Address {
+import java.io.*;
+
+public class Address implements Serializable {
     private String streetAddress;
     private String streetOther;
     private String city;
