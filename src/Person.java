@@ -307,7 +307,6 @@ abstract class Person {
 
                 } else if (userInput.equals("n")) {
                     confirmation = false;
-        }
                     keepGoing = false;
 
                 } else {
@@ -365,14 +364,12 @@ abstract class Person {
     } // end removeLikes
 
     public void removeHates() {
-        }
         Scanner input = new Scanner(System.in);
         String userInput = "";
         int userIndex = -1;
         boolean keepGoing = true;
 
         while (keepGoing) {
-        }
             this.printHates();
             System.out.println("Which hate would you like to remove? (#): ");
             userInput = input.nextLine();
