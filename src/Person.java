@@ -121,7 +121,6 @@ abstract class Person {
     } // setBirthday
 
     public void printBirthday() {
-        boolean keepGoing2 = true;
         System.out.println(name + "'s birthday is on " + birthday.getDate());
 
     } // printBirthday
@@ -215,5 +214,110 @@ abstract class Person {
         }
 
     } // end of address setter
+
+    public void printAddress() {
+       System.out.println(name + "'s address is " + address.getAddress()); 
+
+    } // end of address printer
+
+    public void printLikes() {
+        System.out.println("Current likes: ");
+
+        for (int i = 0; i < likes.size(); i++) {
+            System.out.println(i + ") " + likes.get(i));
+
+        }
+
+    } // end print Likes
+
+    public void printHates() {
+        System.out.println("Current hates: ");
+
+        for (int i = 0; i < hates.size(); i++) {
+            System.out.println(i + ") " + hates.get(i));
+
+        }
+
+    }
+
+    public void addLikes() {
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        boolean keepGoing = true;
+        boolean confirmation = true;
+
+        this.printLikes();
+
+        while (keepGoing) {
+            System.out.println("Add a like: ");
+            userInput = input.nextLine();
+            likes.add(userInput);
+
+            confirmation = true;
+
+            while (confirmation) {
+                System.out.println("Would you like to add another like? (y/n): ");
+                userInput = input.nextLine();
+                userInput = userInput.toLowerCase();
+
+                if (userInput.equals("y")) {
+                    confirmation = false;
+                    // goes back through the loop
+
+                } else if (userInput.equals("n")) {
+                    confirmation = false;
+                    keepGoing = false;
+
+                } else {
+                    System.out.println("Please enter a valid input");
+
+                }
+
+            }
+
+        }
+        System.out.println("*Updated*");
+        this.printLikes();
+
+    } // end addLikes
+
+    public void addHates() {
+        Scanner input = new Scanner(System.in);
+        String userInput = "";
+        boolean keepGoing = true;
+        boolean confirmation = true;
+
+        this.printHates();
+
+        while (keepGoing) {
+            System.out.println("Add a hate: ");
+            userInput = input.nextLine();
+            hates.add(userInput);
+
+            confirmation = true;
+
+            while (confirmation) {
+                System.out.println("Would you like to add another hate? (y/n): ");
+                userInput = input.nextLine();
+                userInput = userInput.toLowerCase();
+
+                if (userInput.equals("y")) {
+                    confirmation = false;
+                    // goes back to loop
+
+                } else if (userInput.equals("n")) {
+                    confirmation = false;
+                    keepGoing = false;
+
+                } else {
+                    System.out.println("Please enter a valid input. ");
+
+                }
+
+            }
+
+        }
+
+    } // end addHates
 
 }
