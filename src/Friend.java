@@ -8,6 +8,7 @@
  */
 
 import java.util.*;
+import java.io.*;
 
 public class Friend extends Person {
     private double friendshipDuration = 0.0;
@@ -28,6 +29,31 @@ public class Friend extends Person {
         this.printAddress();
         this.printLikes();
         this.printHates();
+
+    }
+
+    public void conversate() {
+        try {
+            List<String> msg = new ArrayList<String>();
+            BufferedReader bf = new BufferedReader(new FileReader("friend.txt"));
+        
+            String line = bf.readLine();
+
+            while (line != null) {
+                msg.add(line);
+                line = bf.readLine();
+
+            }
+
+            bf.close();
+
+            int randIndex = (int)(Math.random() * msg.size());
+            System.out.println(fname + " says, '" + msg.get(randIndex) + ".'");
+
+        } catch (Exception e) {
+            System.out.println(fname + " has nothing to say to you.");
+
+        }
 
     }
 
