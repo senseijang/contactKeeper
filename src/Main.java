@@ -7,7 +7,26 @@
  * @version April 26, 2022
  */
 
+import java.util.*;
+import java.io.*;
+
 public class Main {
+    ArrayList<Person> contacts = new ArrayList<Person>();
+
+    public void saveContacts() {
+        try {
+            FileOutputStream fos = new FileOutputStream("contacts.dat", false);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(contacts);
+            oos.flush();
+            oos.close();
+
+        } catch (Exception e) {
+            System.out.println("Saving broke.");
+
+        }
+
+    }
 
 
 }
