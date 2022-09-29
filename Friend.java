@@ -13,8 +13,8 @@ import java.io.*;
 public class Friend extends Person {
     private double friendshipDuration = 0.0;
     FriendStatus status = new FriendStatus();
-    
-    public Friend (String fname, String lname, String phoneNum, double duration) {
+
+    public Friend(String fname, String lname, String phoneNum, double duration) {
         super(fname, lname, phoneNum);
         friendshipDuration = duration;
 
@@ -36,7 +36,7 @@ public class Friend extends Person {
         try {
             List<String> msg = new ArrayList<String>();
             BufferedReader bf = new BufferedReader(new FileReader("friend.txt"));
-        
+
             String line = bf.readLine();
 
             while (line != null) {
@@ -47,7 +47,7 @@ public class Friend extends Person {
 
             bf.close();
 
-            int randIndex = (int)(Math.random() * msg.size());
+            int randIndex = (int) (Math.random() * msg.size());
             System.out.println(fname + " says, '" + msg.get(randIndex) + ".'");
 
         } catch (Exception e) {
@@ -64,7 +64,9 @@ public class Friend extends Person {
 
         while (keepGoing) {
             System.out.println("\n-----Friend Menu-----");
-            System.out.println("1. Show all information\n2. Increase friend status\n3. Decrease friend status\n4. Get gift ideas\n5. Add likes\n6. Delete likes\n7. Add hates\n8. Delete hates\n9. Change birthday\n10. Change address\n11. Change phone number\n12. Talk to " + fname + "\n0. Go back");
+            System.out.println(
+                    "1. Show all information\n2. Increase friend status\n3. Decrease friend status\n4. Get gift ideas\n5. Add likes\n6. Delete likes\n7. Add hates\n8. Delete hates\n9. Change birthday\n10. Change address\n11. Change phone number\n12. Talk to "
+                            + fname + "\n0. Go back");
 
             System.out.println("\nPick an option: ");
             userInput = input.nextLine();
@@ -101,7 +103,7 @@ public class Friend extends Person {
                 this.setAddress();
 
             } else if (userInput.equals("11")) {
-                this.setPhoneNumber(); 
+                this.setPhoneNumber();
 
             } else if (userInput.equals("12")) {
                 this.conversate();
@@ -115,7 +117,7 @@ public class Friend extends Person {
             }
 
         } // end while
-
+        input.close();
     }
 
     public void getGifts() {
@@ -130,7 +132,7 @@ public class Friend extends Person {
 
         } else if (month <= 9) {
             System.out.println("- Shot glasses\n- A new float\n- Sunglasses\n- Bath bombs");
-        
+
         } else if (month <= 12) {
             System.out.println("- Something pumpkin spice\n- Candles\n- New phone case");
 
@@ -139,7 +141,7 @@ public class Friend extends Person {
     }
 
     public static void main(String[] args) {
-        Friend pav = new Friend("Pavek", "Tumber","3123123121", 2.5);
+        Friend pav = new Friend("Pavek", "Tumber", "3123123121", 2.5);
         pav.setBirthday();
         pav.setAddress();
         pav.addLikes();

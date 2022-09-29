@@ -14,7 +14,7 @@ import java.io.*;
 abstract class Person implements Serializable {
     protected ArrayList<String> likes = new ArrayList<String>();
     protected ArrayList<String> hates = new ArrayList<String>();
-    //protected ArrayList<String> nicknames = new ArrayList<String>();
+    // protected ArrayList<String> nicknames = new ArrayList<String>();
 
     protected Date birthday = new Date();
     protected Address address = new Address();
@@ -29,7 +29,7 @@ abstract class Person implements Serializable {
 
     } // end null param
 
-    public Person (String fname, String lname, String phoneNum) {
+    public Person(String fname, String lname, String phoneNum) {
         this.fname = fname;
         this.lname = lname;
         phoneNumber = phoneNum;
@@ -120,9 +120,9 @@ abstract class Person implements Serializable {
             }
 
         }
-        System.out.println("Birthday has been set at " + birthday.getDate()); 
+        System.out.println("Birthday has been set at " + birthday.getDate());
 
-
+        input.close();
     } // setBirthday
 
     public void printBirthday() {
@@ -217,11 +217,12 @@ abstract class Person implements Serializable {
             }
 
         }
+        input.close();
 
     } // end of address setter
 
     public void printAddress() {
-       System.out.println(fname + "'s address is " + address.getAddress()); 
+        System.out.println(fname + "'s address is " + address.getAddress());
 
     } // end of address printer
 
@@ -283,7 +284,7 @@ abstract class Person implements Serializable {
         }
         System.out.println("\n*Updated*");
         this.printLikes();
-
+        input.close();
     } // end addLikes
 
     public void addHates() {
@@ -322,7 +323,7 @@ abstract class Person implements Serializable {
             }
 
         }
-
+        input.close();
     } // end addHates
 
     public void removeLikes() {
@@ -366,7 +367,7 @@ abstract class Person implements Serializable {
         } // end while
         System.out.println("*Updated*");
         this.printLikes();
-
+        input.close();
     } // end removeLikes
 
     public void removeHates() {
@@ -407,7 +408,7 @@ abstract class Person implements Serializable {
             }
 
         }
-
+        input.close();
     } // end removeHates
 
     public void conversate() {
@@ -426,7 +427,7 @@ abstract class Person implements Serializable {
         this.printAddress();
         this.printLikes();
         this.printHates();
-        
+
     }
 
     public String getName() {
@@ -454,13 +455,12 @@ abstract class Person implements Serializable {
 
                 }
 
-            } else  {
+            } else {
                 System.out.println("The inputted phone number was too long, please try again.");
 
             }
 
         }
-
+        input.close();
     }
-
 }

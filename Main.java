@@ -16,10 +16,10 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.loadContacts();
-        //main.addFriend();
-        //main.addEnemy();
-        //main.showAllContactInfo();
-        //main.showContacts();
+        // main.addFriend();
+        // main.addEnemy();
+        // main.showAllContactInfo();
+        // main.showContacts();
         main.generalMenu();
 
     }
@@ -65,15 +65,14 @@ public class Main {
         try {
             FileInputStream fis = new FileInputStream("contacts.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-
-            ArrayList<Person> loadedContacts = (ArrayList<Person>)ois.readObject();
+            ArrayList<Person> loadedContacts = (ArrayList<Person>) ois.readObject();
             contacts = loadedContacts;
+            ois.close();
             return loadedContacts;
 
         } catch (Exception e) {
             System.out.println("You have no contacts!");
             return null;
-
         }
 
     } // end loadContacts
@@ -137,10 +136,10 @@ public class Main {
         Friend f = new Friend(fname, lname, phoneNum, userDuration);
         f.setBirthday();
         f.setAddress();
-        
+
         contacts.add(f);
         this.saveContacts();
-
+        input.close();
     } // end addFriend
 
     public void addEnemy() {
@@ -203,7 +202,7 @@ public class Main {
 
         contacts.add(e);
         this.saveContacts();
-
+        input.close();
     } // end addEnemy
 
     public void deleteContact() {
@@ -227,7 +226,7 @@ public class Main {
             System.out.println("The input was invalid, deletion has been aborted");
 
         }
-
+        input.close();
     } // end deleteContact
 
     public void generalMenu() {
@@ -237,7 +236,8 @@ public class Main {
 
         while (keepGoing) {
             System.out.println("\n-----Contactbook-----");
-            System.out.println("1. Show all contacts\n2. Add a new friend\n3. Add a new enemy\n4. Delete a contact\n5. Sort all names\n0. Exit");
+            System.out.println(
+                    "1. Show all contacts\n2. Add a new friend\n3. Add a new enemy\n4. Delete a contact\n5. Sort all names\n0. Exit");
             System.out.println("\nSelect an option: ");
 
             userInput = input.nextLine();
@@ -256,14 +256,14 @@ public class Main {
 
             } else if (userInput.equals("5")) {
                 this.sortNames();
-                
+
             } else if (userInput.equals("0")) {
                 keepGoing = false;
 
             }
 
         }
-
+        input.close();
     } // end generalMenu
 
     public void contactSelection() {
@@ -286,45 +286,47 @@ public class Main {
             System.out.println("\nThe input was invalid, you will be taken back to the main menu");
 
         }
-
+        input.close();
     } // end contactSelection
 
     /*
-    public void reportMenu() {
-        Scanner input = new Scanner(System.in);
-        String userInput = "";
-        boolean keepGoing = true;
-
-        while (keepGoing) {
-            System.out.println("\n-----Generate Report-----");
-            System.out.println("1. Sort all names\n2. List all likes\n3. List all hates\n0. Go back");
-            System.out.println("Please select an option: ");
-            userInput = input.nextLine();
-
-            if (userInput.equals("1")) {
-                this.sortNames();
-
-            } else if (userInput.equals("2")) {
-                //this.getAllLikes();
-
-            } else if (userInput.equals("3")) {
-                //this.getAllHates();
-
-            } else if (userInput.equals("0")) {
-                keepGoing = false;
-
-            }
-
-        } // end while
-
-    } // end menu
-    */
+     * public void reportMenu() {
+     * Scanner input = new Scanner(System.in);
+     * String userInput = "";
+     * boolean keepGoing = true;
+     * 
+     * while (keepGoing) {
+     * System.out.println("\n-----Generate Report-----");
+     * System.out.
+     * println("1. Sort all names\n2. List all likes\n3. List all hates\n0. Go back"
+     * );
+     * System.out.println("Please select an option: ");
+     * userInput = input.nextLine();
+     * 
+     * if (userInput.equals("1")) {
+     * this.sortNames();
+     * 
+     * } else if (userInput.equals("2")) {
+     * //this.getAllLikes();
+     * 
+     * } else if (userInput.equals("3")) {
+     * //this.getAllHates();
+     * 
+     * } else if (userInput.equals("0")) {
+     * keepGoing = false;
+     * 
+     * }
+     * 
+     * } // end while
+     * 
+     * } // end menu
+     */
 
     public void sortNames() {
         ArrayList<String> names = new ArrayList<String>();
 
         for (int i = 0; i < contacts.size(); i++) {
-           names.add(contacts.get(i).getName());
+            names.add(contacts.get(i).getName());
 
         }
 
